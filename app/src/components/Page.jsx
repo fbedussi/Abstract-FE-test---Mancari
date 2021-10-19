@@ -1,9 +1,44 @@
-const Page = () => {
-  const style = {
-    padding: 0,
-    margin: 0,
+import { useState, useEffect } from "react";
+import Item from "./Item/Item";
+import { FlexSection } from "../styledComponents/styledComponents.js";
+import { connect } from "react-redux";
+
+const Page = (props) => {
+  const [response, setResponse] = useState([]);
+  const flexGap = "10px";
+
+  const APIrequest = () => {
+    fetch(
+      "https://assets.fc-dev.instore.oakley.com/assets/products/products.json"
+    )
+      .then((resp) => resp.json())
+      .then((json) => {
+        setResponse(json);
+      });
   };
-  return <hr style={style} />;
+
+  useEffect(() => {
+    APIrequest();
+  }, []);
+
+  return (
+    <>
+      <FlexSection className="page">
+        {response.map((obj, i) => {
+          if (obj.name.toLowerCase().includes(props.filter.toLowerCase())) {
+            return <Item obj={obj} />;
+          }
+        })}
+      </FlexSection>
+    </>
+  );
 };
 
-export default Page;
+const mapStateToProps = (state) => {
+  const { filter } = state;
+  return {
+    filter: filter.filter,
+  };
+};
+
+export default connect(mapStateToProps)(Page);

@@ -5,10 +5,81 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+header{
+  position: sticky;
+  top: 0;
+}
 footer {
   background-color: black;
   color: white;
   a{
     color: white
+  }
+  form{
+    display: contents;
+  }
+}
+////////////////////////////MEDIAQ//////////////////////////////
+@media only screen and (min-width: 1599px) {
+  body{
+    background-color: darkslategrey;
+  }
+  //5 items
+  .item{
+    flex: 0 1 19%;
+  }
+  .page{
+    gap: 1%;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  body{
+    background-color: orange;
+  }
+  //4 items
+  .item{
+    flex: 0 1 24%;
+  }
+  .page{
+    gap: 1%;
+  }
+}
+@media only screen and (max-width: 1260px) {
+  body{
+    background-color: darkmagenta;
+  }
+  //3 items
+  .item{
+    flex: 0 1 32.3333333333%;
+  }
+  .page{
+    gap: 1%;
+  }
+}
+@media only screen and (max-width: 960px) {
+  body{
+    background-color: green;
+  }
+  //2 items
+  .item{
+    flex: 0 1 48%;
+  }
+  .page{
+    gap: 2%;
+  }
+  #menu, #filter{
+    display: none;
+  }
+}
+@media only screen and (max-width: 650px) {
+  body{
+    background-color: greenyellow;
+  }
+  //1 items
+  .item{
+    flex: 0 1 100%;
+  }
+  .page{
+    gap: 1%;
   }
 }
