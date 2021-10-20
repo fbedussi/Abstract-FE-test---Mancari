@@ -1,5 +1,5 @@
-import { FlexSection } from "../../styledComponents/styledComponents.js";
 import "./item.scss";
+import { useState } from "react";
 
 const Item = ({ obj }) => {
   const [name, currency, value] = [
@@ -7,6 +7,20 @@ const Item = ({ obj }) => {
     obj.price.currency,
     obj.price.current.value,
   ];
+
+  const [marginSlideValue, setMarginSlideValue] = useState(0);
+  const handleButton = (param) => {
+    switch (param) {
+      case "left":
+        marginSlideValue !== 0 && setMarginSlideValue(marginSlideValue - 0.5);
+        break;
+      case "right":
+        setMarginSlideValue(marginSlideValue + 0.5);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <div className="item">
@@ -16,18 +30,22 @@ const Item = ({ obj }) => {
         <p>{`${currency} ${value}`}</p>
         <p>{name}</p>
       </div>
-
-      {/* <FlexSection alignItems="center" justifyContent="center"> */}
-      {/* <button>{`<`}</button> */}
-      {/* <FlexSection justifyContent="space-between"> */}
-      {/* <div className="slider"> */}
-      {/* <img alt="imgs" src="https://via.placeholder.com/80x50" />
+      <div className="slider">
+        <div className="slider__left-button">
+          <button onClick={() => handleButton("left")}>{`<`}</button>
+        </div>
+        <div
+          className="slider__imgs"
+          style={{ marginLeft: `${marginSlideValue}rem` }}
+        >
           <img alt="imgs" src="https://via.placeholder.com/80x50" />
-          <img alt="imgs" src="https://via.placeholder.com/80x50" /> */}
-      {/* </div> */}
-      {/* </FlexSection> */}
-      {/* <button>{`>`}</button> */}
-      {/* </FlexSection> */}
+          <img alt="imgs" src="https://via.placeholder.com/80x50" />
+          <img alt="imgs" src="https://via.placeholder.com/80x50" />
+        </div>
+        <div className="slider__right-button">
+          <button onClick={() => handleButton("right")}>{`>`}</button>
+        </div>
+      </div>
     </div>
   );
 };

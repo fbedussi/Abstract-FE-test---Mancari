@@ -6,12 +6,22 @@
         width: 100%;
         text-align: center;
     }
-    button{
-        height: 50%;
-    }
     .slider{
-        img{
-            padding: 0 0.2rem 0 0.2rem;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+        
+        .slider__left-button, .slider__right-button{
+            margin: 0 1rem 0 1rem;
+        }
+        .slider__imgs{
+            display: flex;
+            grid-gap: 1rem;
+            gap: 1rem;
+            overflow: hidden;
         }
     }
 }

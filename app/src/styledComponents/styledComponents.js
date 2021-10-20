@@ -58,7 +58,7 @@ const HR = styled.hr`
 const Link = styled.a`
   font-size: ${fontSize__S}rem;
   text-decoration: ${(props) => props.decorationFalse && "none"};
-  padding-top: ${littleSpace}rem;
+  padding: ${littleSpace}rem ${littleSpace}rem 0 0;
 `;
 //PAGE
 export { FlexSection, Menu, MenuButton, UserInput, FilterButton, Link, HR };

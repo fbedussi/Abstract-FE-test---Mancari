@@ -3,6 +3,7 @@ import {
   UserInput,
   FlexSection,
 } from "../styledComponents/styledComponents.js";
+import "./footer.scss";
 
 const Footer = () => {
   return (

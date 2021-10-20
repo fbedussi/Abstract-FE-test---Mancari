@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 
 const Page = (props) => {
   const [response, setResponse] = useState([]);
-  const flexGap = "10px";
 
   const APIrequest = () => {
     fetch(
@@ -34,6 +33,7 @@ const Page = (props) => {
   );
 };
 
+//STORE
 const mapStateToProps = (state) => {
   const { filter } = state;
   return {

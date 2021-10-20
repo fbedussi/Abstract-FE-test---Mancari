@@ -8,7 +8,7 @@ import {
 } from "../styledComponents/styledComponents.js";
 import { connect } from "react-redux";
 import * as action from "../redux/actions.js";
-import { useState } from "react";
+import "./header.scss";
 
 const Header = (props) => {
   const handleReset = () => {
@@ -23,7 +23,7 @@ const Header = (props) => {
           <MenuButton>EYEGLASSES</MenuButton>
           <MenuButton>LENSES</MenuButton>
         </Menu>
-        <UserInput id="filter">
+        <UserInput>
           <input
             type="text"
             placeholder="search"
@@ -40,13 +40,13 @@ const Header = (props) => {
   );
 };
 
+//STORE
 const mapStateToProps = (state) => {
   const { filter } = state;
   return {
     filter: filter.filter,
   };
 };
-
 const mapDispatchToProps = (dispatch) => {
   return {
     filterUpdate: (newFilter) => dispatch(action.FILTER_UPDATE(newFilter)),
