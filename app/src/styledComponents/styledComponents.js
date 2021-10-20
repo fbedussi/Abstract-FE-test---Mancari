@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//VAR
 const fontSize__S = 0.8;
 const fontSize__L = 1.2;
 const space = 1;
@@ -7,7 +8,7 @@ const littleSpace = space / 2;
 const doubleSpace = space * 2;
 const button__bordeRadius = 5;
 
-//GLOBAL
+//STYLED COMPONENT
 const FlexSection = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -22,7 +23,6 @@ const UserInput = styled.section`
   gap: ${littleSpace}rem;
   height: ${doubleSpace}rem;
 `;
-//HEADER
 const Menu = styled.section`
   display: flex;
   gap: ${space}rem;
@@ -53,12 +53,10 @@ const HR = styled.hr`
   padding: 0;
   margin: 0;
 `;
-
-//FOOTER
 const Link = styled.a`
   font-size: ${fontSize__S}rem;
   text-decoration: ${(props) => props.decorationFalse && "none"};
   padding: ${littleSpace}rem ${littleSpace}rem 0 0;
 `;
-//PAGE
+
 export { FlexSection, Menu, MenuButton, UserInput, FilterButton, Link, HR };

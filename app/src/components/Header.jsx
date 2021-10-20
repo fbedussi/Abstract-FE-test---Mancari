@@ -18,7 +18,7 @@ const Header = (props) => {
     <header>
       <FlexSection bkgColor={"white"} justifyContent="space-between">
         <img alt="logo" src="https://via.placeholder.com/100x50" />
-        <Menu id="menu">
+        <Menu>
           <MenuButton selected>SUNGLASSES</MenuButton>
           <MenuButton>EYEGLASSES</MenuButton>
           <MenuButton>LENSES</MenuButton>
