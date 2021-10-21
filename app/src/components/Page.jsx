@@ -25,7 +25,7 @@ const Page = (props) => {
       <FlexSection className="page">
         {response.map((obj, i) => {
           if (obj.name.toLowerCase().includes(props.filter.toLowerCase())) {
-            return <Item obj={obj} />;
+            return <Item key={obj.UPC} obj={obj} />;
           }
         })}
       </FlexSection>

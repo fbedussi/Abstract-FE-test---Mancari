@@ -6,14 +6,13 @@ import {
   FlexSection,
   HR,
 } from "../styledComponents/styledComponents.js";
-import { connect } from "react-redux";
-import * as action from "../redux/actions.js";
+import { useDispatch, useSelector } from "react-redux";
 import "./header.scss";
+import { FILTER_UPDATE, FILTER_RESET } from '../redux/actions';
 
-const Header = (props) => {
-  const handleReset = () => {
-    props.filterReset();
-  };
+const Header = () => {
+  const filter = useSelector(filterSelector)
+  const dispatch = useDispatch()
   return (
     <header>
       <FlexSection bkgColor={"white"} justifyContent="space-between">
@@ -27,12 +26,12 @@ const Header = (props) => {
           <input
             type="text"
             placeholder="search"
-            value={props.filter}
+            value={filter}
             onChange={(e) => {
-              props.filterUpdate(e.target.value);
+              dispatch(FILTER_UPDATE(e.target.value));
             }}
           />
-          <FilterButton onClick={() => handleReset()}>RESET</FilterButton>
+          <FilterButton onClick={() => dispatch(FILTER_RESET())}>RESET</FilterButton>
         </UserInput>
       </FlexSection>
       <HR />
@@ -41,17 +40,7 @@ const Header = (props) => {
 };
 
 //STORE
-const mapStateToProps = (state) => {
-  const { filter } = state;
-  return {
-    filter: filter.filter,
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    filterUpdate: (newFilter) => dispatch(action.FILTER_UPDATE(newFilter)),
-    filterReset: () => dispatch(action.FILTER_RESET()),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+const filterSelector = (state) => state.filter.filter
+
+export default Header;
